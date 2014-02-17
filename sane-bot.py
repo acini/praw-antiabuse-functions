@@ -57,9 +57,8 @@ def post_reply(reply,post):
     return True
   except Exception as e:
     warn("REPLY FAILED: %s @ %s"%(e,post.subreddit))
-    if str(e) == '403 Client Error: Forbidden' and str(post.subreddit) not in badsubs:
-      badsubs = r.get_info(thing_id=badsubs_comment).body.split()
-      badsubs.append(str(post.subreddit))
+    if str(e) == '403 Client Error: Forbidden':
+      print '/r/'+post.subreddit+' has banned me.'
       save_changing_variables()
     return False
 
