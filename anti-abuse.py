@@ -9,7 +9,7 @@ import collections, praw
 #Note: You can use reply function like this: post_reply(comment-content,praw-comment-object)
 #Note: is_summon_chain returns True if grandparent comment is bot's own
 #Note: comment_limit_reached returns True if current will be 5th reply in same thread, resets on process restart
-#Note: don't forget to decalre `submissioncount = collections.Counter()` before starting your main loop
+#Note: don't forget to declare `submissioncount = collections.Counter()` before starting your main loop
 #Note: Here, r = praw.Reddit('unique client identifier')
 
 def is_summon_chain(post):
@@ -58,7 +58,7 @@ def post_reply(reply,post):
   except Exception as e:
     warn("REPLY FAILED: %s @ %s"%(e,post.subreddit))
     if str(e) == '403 Client Error: Forbidden':
-      print '/r/'+post.subreddit+' has banned me.'
+      print ('/r/'+post.subreddit+' has banned me.')
       save_changing_variables()
     return False
 
